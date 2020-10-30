@@ -1,6 +1,11 @@
 import React from 'react';
 import Aux from '../../../hoc/Auxillary';
 import Button from '../../UI/Button/Button';
+const formatter = new Intl.NumberFormat('en-Us',{
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+});
 
 const orderSummary = (props) => {
     const ingredientSummary = Object.keys(props.ingredients)
@@ -20,6 +25,7 @@ const orderSummary = (props) => {
         <ul>
             {ingredientSummary}
         </ul>
+        <p>Total Price: <strong>{formatter.format(props.price.toFixed(2))}</strong></p>
 
         <p>Continue to Checkout?</p>
 
