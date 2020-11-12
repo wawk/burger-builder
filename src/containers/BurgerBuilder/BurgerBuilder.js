@@ -4,6 +4,8 @@ import Burger from '../../components/Burger/Burger';
 import Modal from '../../components/UI/Modal/Modal';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import axiosInstance from '../../axios-orders';
+
 const INGREDIENT_PRICES = {
     salad: 0.5,
     cheese: 0.4,
@@ -65,8 +67,31 @@ class BurgerBuilder extends Component {
     };
 
     purchaseContinueHandler = () => {
-        alert("You continue!");
-        
+        // alert("You continue!");
+        const order = {
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Max Swarzmuller',
+                address: {
+                    street: 'TestStreet',
+                    zipCode: '99567',
+                    country: 'Germany',
+
+
+
+                },
+                email: 'test@someemail.com'
+
+
+            },
+            deliverMethod: 'fastest'
+
+        };
+
+        axiosInstance.post('/orders.json', order)
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
 
     };
 
