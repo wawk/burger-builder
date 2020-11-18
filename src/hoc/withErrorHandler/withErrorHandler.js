@@ -6,14 +6,19 @@ import axios from 'axios';
 const withErrorHandler = (WrappedComponent, axiosInstance) => {
 
     return class extends Component {
-        state = {
-            error: null,
+        constructor(){
+            super();
+            this.state = {
+                error: null,
+            };
         };
-        componentDidMount () {
-            axios.interceptors.request.use(req => {
-                this.setState({error: null});
 
-            });
+        
+        componentDidMount () {
+            // axios.interceptors.request.use(req => {
+            //     //this.setState({error: null});
+
+            // });
             axios.interceptors.response.use(null, error => {
                 this.setState({error: error});
             });
