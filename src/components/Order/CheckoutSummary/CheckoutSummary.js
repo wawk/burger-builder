@@ -1,34 +1,55 @@
+
 import React from 'react';
-import Burger from "../../Burger/Burger";
+
+import Burger from '../../Burger/Burger';
 import Button from '../../UI/Button/Button';
 import classes from './CheckoutSummary.module.css';
 
 const checkoutSummary = (props) => {
     return (
-
         <div className={classes.CheckoutSummary}>
-
-            <h1 >We Hope it tastes well!</h1>
-            <div style={{
-             
-                width: '100%',
-        
-                margin: 'auto'
-            }}>
+            <h1>We hope it tastes well!</h1>
+            <div style={{width: '100%', margin: 'auto'}}>
                 <Burger ingredients={props.ingredients}/>
             </div>
-
             <Button 
-            btnType="Danger"
-            clicked
-            >CANCEL</Button>
-            <Button btnType="Sucess"
-            clicked
-            >PLACE ORDER</Button>
+                btnType="Danger"
+                clicked>CANCEL</Button>
+            <Button 
+                btnType="Success"
+                clicked>CONTINUE</Button>
         </div>
-
     );
-
-};
+}
 
 export default checkoutSummary;
+// import React from 'react';
+// import Burger from "../../Burger/Burger";
+// import button from '../../UI/Button/Button';
+// import classes from './CheckoutSummary.module.css';
+
+// const checkoutSummary = (props) => {
+//     return (
+
+//         <div className={classes.CheckoutSummary}>
+
+//             <h1 >We Hope it tastes well!</h1>
+//             <div style={{
+             
+//                 width: '100%',
+        
+//                 margin: 'auto'
+//             }}>
+//                 <Burger ingredients={props.ingredients}/>
+//             </div>
+//             <button btnType="Danger">CANCEL</button>
+//             <button btnType="Success">CONTINUE</button>
+           
+
+//               </div> 
+
+//     );
+
+//};
+
+//export default checkoutSummary;
